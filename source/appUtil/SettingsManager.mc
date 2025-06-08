@@ -1,0 +1,3 @@
+class SettingsManager {
+    // Stub Class 
+}
