@@ -5,14 +5,14 @@ class AbstractModel {
     // this is a weak reference so if the app shuts down
     // we aren't holding a reference & prologing the application
     // shutdown process.
-    private SettingsManger m_settingsManager;
+    private var m_settingsManager as SettingsManager;
     
     /**
      * Initalize the model using a provided SettingsManager
      * @param SettingsManager reference to the settings manager
      */
-    public initialize(SettingsManager sm) as Void {
-        m_settingsManager = sm.weak();
+    public function initialize(sm as SettingsManager) {
+        m_settingsManager = sm;
     }
 
     /**
@@ -21,10 +21,7 @@ class AbstractModel {
      * @note may return null if the global settings manager no longer exists
      * @return reference to Settings Manager if it exists, null otherwise
      */
-    protected getSettingsManager() as SettingsManager {
-        if (m_settingsManager.stillalive()) {
-            return m_settingsManager.get()
-        }
-        return null
+    protected function getSettingsManager() as SettingsManager{
+        return m_settingsManager;
     }
 }

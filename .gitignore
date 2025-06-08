@@ -1,2 +1,5 @@
 # Build Output
 bin/
+
+# VS Code Settings
+.vscode/
